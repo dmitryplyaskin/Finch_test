@@ -1,8 +1,15 @@
 import React from 'react'
 import { useStore } from 'effector-react'
 
-export const SelectedArea = ({ $areas, onSelect, number, text }) => {
+export const SelectedArea = ({
+	$areas,
+	$selectedAreas,
+	onSelect,
+	number,
+	text,
+}) => {
 	const areas = useStore($areas)
+	const selectedAreas = useStore($selectedAreas)
 
 	return (
 		<div className="areas">
@@ -13,10 +20,10 @@ export const SelectedArea = ({ $areas, onSelect, number, text }) => {
 			{areas.map((area, index) => (
 				<div
 					key={index}
-					className={`area ${area.selected && 'area_active'}`}
-					onClick={() => onSelect(area.name)}
+					className={`area ${selectedAreas.includes(area) && 'area_active'}`}
+					onClick={() => onSelect(area)}
 				>
-					{area.name}
+					{area}
 				</div>
 			))}
 		</div>

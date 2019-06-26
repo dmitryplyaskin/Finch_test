@@ -9,7 +9,7 @@ const checkNumber = (arrayNumbers, min, max) => {
 	}
 }
 
-const generate = (count, min, max) => {
+const generateRandomNumbers = (count, min, max) => {
 	const numbers = []
 	for (let i = 0; i < count; i++) {
 		numbers.push(checkNumber(numbers, min, max))
@@ -17,7 +17,4 @@ const generate = (count, min, max) => {
 	return numbers
 }
 
-export const generateRandomNumbers = () => ({
-	firstField: generate(8, 1, 19),
-	secondField: generate(1, 1, 2),
-})
+export { generateRandomNumbers }
